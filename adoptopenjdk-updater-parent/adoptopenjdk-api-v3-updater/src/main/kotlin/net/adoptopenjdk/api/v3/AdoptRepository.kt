@@ -34,6 +34,7 @@ class AdoptRepositoryImpl @Inject constructor(
     companion object {
         const val ADOPT_ORG = "AdoptOpenJDK"
         const val ADOPTIUM_ORG = "adoptium"
+        const val IBM_ORG = "ibmruntimes"
 
         @JvmStatic
         private val LOGGER = LoggerFactory.getLogger(this::class.java)
@@ -126,7 +127,7 @@ class AdoptRepositoryImpl @Inject constructor(
 
                 getRepoDataAsync(ADOPTIUM_ORG, Vendor.adoptium, "temurin$version-binaries", getFun),
 
-                getRepoDataAsync(ADOPT_ORG, Vendor.ibm, "semeru$version-binaries", getFun)
+                getRepoDataAsync(IBM_ORG, Vendor.ibm, "semeru$version-binaries", getFun)
             )
                 .map { repo -> repo.await() }
         }
